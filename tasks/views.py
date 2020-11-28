@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .serializers import TaskSerializer
 from django.core import serializers
+from .models import Task
 
 
 # Create your views here.
