@@ -30,6 +30,6 @@ def add(request):
     return JsonResponse(serializer.errors, status=400)
 
 @api_view(["DELETE"])
-def deleteTasks(request):
+def delete(request):
     Task.objects.all().delete()
     return Response({"message": "All tasks deleted!"})
