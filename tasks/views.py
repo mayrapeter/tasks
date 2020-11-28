@@ -25,5 +25,5 @@ def add(request):
     serializer = TaskSerializer(data=dataJson)
     if serializer.is_valid():
         serializer.save()
-        return JsonResponse(serializer_class.data, status=201)
-    return JsonResponse(serializer_class.errors, status=400)
+        return JsonResponse(serializer.data, status=201)
+    return JsonResponse(serializer.errors, status=400)
