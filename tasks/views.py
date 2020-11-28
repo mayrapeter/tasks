@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from rest_framework.response import Response
 from .serializers import TaskSerializer
 from django.core import serializers
 from .models import Task
@@ -27,3 +28,8 @@ def add(request):
         serializer.save()
         return JsonResponse(serializer.data, status=201)
     return JsonResponse(serializer.errors, status=400)
+
+@api_view(["DELETE"])
+def deleteTasks(request):
+    Task.objects.all().delete()
+    return Response({"message": "All tasks deleted!"})
