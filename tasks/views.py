@@ -13,7 +13,7 @@ def index(request):
 def tasks(request):
     tasks = Task.objects.all()
     tasks_json = serializers.serialize("json", tasks)
-    return HttpResponse(jsontasks_jsontask ,content_type="application/json")
+    return HttpResponse(tasks_json ,content_type="application/json")
 
 def add(request):
     serializer = TaskSerializer(data=request.data)
